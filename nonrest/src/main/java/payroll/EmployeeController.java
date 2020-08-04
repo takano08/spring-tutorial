@@ -20,11 +20,11 @@ class EmployeeController {
     }
 
     // Aggregate root
-
     @GetMapping("/employees")
     List<Employee> all() {
         return repository.findAll();
     }
+
 
     @PostMapping("/employees")
     Employee newEmployee(@RequestBody Employee newEmployee) {
@@ -39,6 +39,7 @@ class EmployeeController {
         return repository.findById(id)
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
+
 
     @PutMapping("/employees/{id}")
     Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
